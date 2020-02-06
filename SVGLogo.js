@@ -20,25 +20,44 @@ export default class SVGLogo extends HTMLDivElement {
     return `
       <style>
         :host {
-          display: inline-grid;
-          grid-auto-flow: column;
-          grid-template-columns: 60px 150px;
-          grid-template-rows: 60px;
+          display: grid;
+          row-gap: 0.062em;
+          column-gap: 0.062em;
           align-items: center;
           justify-items: center;
+          width: max-content!important;
+          height: max-content!important;
+        }
+        :host(.rows) {
+          grid-auto-flow: row;
+          grid-template-columns: max-content;
+          grid-template-rows: max-content max-content;
+        }
+        :host(.columns) {
+          grid-auto-flow: column;
+          grid-template-columns: max-content max-content;
+          grid-template-rows: max-content;
         }
         ::slotted(.mark) {
-          width: 50px;
-          height: 50px;
+          font-size: 0.62em;
         }
         ::slotted(.type) {
-          width: 150px;
-          height: 50px;
-          margin-top: 3px;
+          font-size: 1em;
         }
+        :host(.rows) ::slotted(.mark) {
+          font-size: 1em;
+        }
+        :host(.columns) ::slotted(.mark) {
+          font-size: 0.25em;
+        }
+        :host(.columns) ::slotted(.type) {
+          margin-top: 0.0062em;
+        }
+        
       </style>
     `;
   }
+  
 };
 
 //customElements.define('svg-logo', SVGLogo, { extends: "div"});
