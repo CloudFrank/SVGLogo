@@ -21,8 +21,9 @@ export default class SVGLogo extends HTMLDivElement {
       <style>
         :host {
           display: grid;
-          row-gap: 0.062em;
-          column-gap: 0.062em;
+          //row-gap: 0.062em;
+          //column-gap: 0.062em;
+          gap: 0.062em;
           align-items: center;
           justify-items: center;
           width: max-content!important;
